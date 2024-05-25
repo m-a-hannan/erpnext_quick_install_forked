@@ -366,7 +366,7 @@ cd frappe-bench && \
 
 sudo chmod -R o+rx /home/$(echo $USER)
 
-bench new-site $site_name --db-root-password $sqlpasswrd --admin-password $adminpasswrd
+bench new-site $site_name --db-root-password $sqlpasswrd --admin-password $adminpasswrd --db-name $site_name
 
 # Prompt user to confirm if they want to install ERPNext
 
@@ -447,6 +447,7 @@ case "$continue_prod" in
     printf "${NC}\n"
     sleep 3
 
+    #HRMS Install
     echo -e "${LIGHT_BLUE}Would you like to install HRMS? (yes/no)${NC}"
     read -p "Response: " hrms_install
     hrms_install=$(echo "$hrms_install" | tr '[:upper:]' '[:lower:]')
